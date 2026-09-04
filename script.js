@@ -35,42 +35,42 @@ function playGame(numberOfRounds) {
 
     if (humanChoice === "rock" && computerChoice === "paper") {
       console.log("“You lose! Paper beats Rock”.");
-      alertRoundResult("computer");
-      return (computerScore += 1);
+      computerScore += 1;
+      return alertRoundResult("computer");
     } else if (humanChoice === "rock" && computerChoice === "scissors") {
       console.log("“You win! Rock beats Scissors”.");
-      alertRoundResult("human");
-      return (humanScore += 1);
+      humanScore += 1;
+      return alertRoundResult("human");
     } else if (humanChoice === "paper" && computerChoice === "scissors") {
       console.log("“You lose! Scissors beats Paper”.");
-      alertRoundResult("computer");
-      return (computerScore += 1);
+      computerScore += 1;
+      return alertRoundResult("computer");
     } else if (humanChoice === "paper" && computerChoice === "rock") {
       console.log("“You win! Paper beats Rock”.");
-      alertRoundResult("human");
-      return (humanScore += 1);
+      humanScore += 1;
+      return alertRoundResult("human");
     } else if (humanChoice === "scissors" && computerChoice === "rock") {
       console.log("“You lose! Rock beats Scissors”.");
-      alertRoundResult("computer");
-      return (computerScore += 1);
+      computerScore += 1;
+      return alertRoundResult("computer");
     } else if (humanChoice === "scissors" && computerChoice === "paper") {
       console.log("“You win! Scissors beats Paper”.");
-      alertRoundResult("human");
-      return (humanScore += 1);
+      humanScore += 1;
+      return alertRoundResult("human");
     } else {
       console.log("“Tie! No one beats the other”.");
-      alertRoundResult();
-      return (tieScore += 1);
+      tieScore += 1;
+      return alertRoundResult();
     }
   }
 
   function alertRoundResult(alertMessage) {
     if (alertMessage === "human") {
-      return alert("Human wins this round");
+      return alert(`Human wins this round\nHuman: ${humanScore} | Computer: ${computerScore} | Tie: ${tieScore}`);
     } else if (alertMessage == "computer") {
-      return alert("Computer wins this round");
+      return alert(`Computer wins this round\nHuman: ${humanScore} | Computer: ${computerScore} | Tie: ${tieScore}`);
     } else {
-      return alert("This round is a tie");
+      return alert(`This round is a tie\nHuman: ${humanScore} | Computer: ${computerScore} | Tie: ${tieScore}`);
     }
   }
 
@@ -86,10 +86,13 @@ function playGame(numberOfRounds) {
 
   if (humanScore > computerScore) {
     console.log("Human wins!");
+    alert(`Result of the ${numberOfRounds} rounds:\nHuman: ${humanScore} | Computer: ${computerScore} | Tie: ${tieScore}\nHuman wins!`);
   } else if (humanScore < computerScore) {
     console.log("Computer wins!");
+    alert(`Result of the ${numberOfRounds} rounds:\nHuman: ${humanScore} | Computer: ${computerScore} | Tie: ${tieScore}\nComputer wins!`);
   } else {
     console.log("Tie! No one wins");
+    alert(`Result of the ${numberOfRounds} rounds:\nHuman: ${humanScore} | Computer: ${computerScore} | Tie: ${tieScore}\nTie! No one wins`);
   }
 }
 
