@@ -1,8 +1,44 @@
+/* theme */
+:root {
+  color-scheme: light dark;
+
+  --bg-color: light-dark(#f4f4f4, #121212);
+  --primary-text: light-dark(#000000, #f4f4f4);
+  --secondary-text: light-dark(#717171, #a8a8a8);
+  --border-color: light-dark(#d3d3d3, #3a3a3a);
+  --rock-btn: light-dark(lightblue, #4fa3c7);
+  --paper-btn: light-dark(lightgreen, #5bcf68);
+  --scissors-btn: light-dark(lightcoral, #e56363);
+  --player-choice: light-dark(hsl(195, 50%, 90%), #243e47);
+  --computer-choice: light-dark(hsl(0, 50%, 90%), #472d30);
+  --round-text-win-bg: light-dark(hsl(120, 50%, 90%), hsl(120, 50%, 10%));
+  --round-text-lose-bg: light-dark(hsl(0, 50%, 90%), hsl(0, 50%, 10%));
+  --round-text-tie-bg: light-dark(hsl(0, 0%, 90%), hsl(0, 0%, 10%));
+  --shadow-color: light-dark(hsl(0, 0%, 70%), hsl(0, 0%, 15%));
+  --overlay-color: light-dark(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.55));
+}
+
+:root.dark {
+  color-scheme: dark;
+}
+
+:root.light {
+  color-scheme: light;
+}
+
+/* change icons have a fill of white in dark mode*/
+.dark-img {
+  filter: brightness(0) invert(1);
+}
+
+/* defaults */
 * {
-  font-family: "Courier New", Courier, monospace;
+  font-family: sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-box: trim-both cap alphabetic;
+  user-select: none;
 }
 
 body {
@@ -10,8 +46,274 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #313131;
-  color: #f4f4f4;
-  padding: 32px;
+  background-color: var(--bg-color);
+  padding: 16px;
   text-align: center;
+}
+
+h1,
+h2 {
+  padding: 8px 0px;
+  color: var(--primary-text);
+}
+
+p {
+  padding: 4px 0px;
+  color: var(--secondary-text);
+  font-weight: bold;
+}
+
+img {
+  fill: var(--primary-text);
+}
+
+/* container */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0px 8px 16px var(--shadow-color);
+  gap: 16px;
+  width: 600px;
+}
+
+/* title */
+.title-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.controls {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.controls img {
+  width: 32px;
+  cursor: pointer;
+}
+
+.controls img:hover {
+  opacity: 0.75;
+}
+
+.controls img:active {
+  opacity: 0.5;
+}
+
+/* score + round */
+.score-container,
+.round-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.player,
+.tie,
+.computer,
+.total-rounds,
+.remaining-rounds {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.player-score {
+  color: blue;
+}
+
+.computer-score {
+  color: red;
+}
+
+/* game */
+.game-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 8px;
+  gap: 16px;
+}
+
+.choice-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.player-choice,
+.round-result,
+.computer-choice {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 8px;
+}
+
+.player-choice-img,
+.computer-choice-img {
+  display: flex;
+  padding: 8px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  width: 66px;
+  height: 66px;
+}
+
+.player-choice-img {
+  background-color: var(--player-choice);
+}
+
+.computer-choice-img {
+  background-color: var(--computer-choice);
+}
+
+.choice-container img {
+  width: 100%;
+}
+
+.round-text {
+  padding: 16px 32px;
+  border-radius: 8px;
+}
+
+.round-text-tie {
+  color: var(--primary-text);
+  background-color: var(--round-text-tie-bg);
+}
+
+.round-text-win {
+  color: green;
+  background-color: var(--round-text-win-bg);
+}
+
+.round-text-lose {
+  color: red;
+  background-color: var(--round-text-lose-bg);
+}
+
+.btn-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-container div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 32px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  width: 100%;
+  cursor: pointer;
+}
+
+.btn-container p {
+  color: var(--primary-text);
+}
+
+.btn-container div:hover {
+  opacity: 0.75;
+}
+
+.btn-container div:active {
+  opacity: 0.5;
+}
+
+.btn-container div img {
+  width: 35px;
+}
+
+#btn-rock {
+  background-color: var(--rock-btn);
+}
+
+#btn-paper {
+  background-color: var(--paper-btn);
+}
+
+#btn-scissors {
+  background-color: var(--scissors-btn);
+}
+
+/* start screen */
+
+.start-screen-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 11;
+  background-color: var(--bg-color);
+  border-radius: 8px;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+}
+
+.start-screen-container button {
+  width: 100%;
+  padding: 16px;
+  border: 2px solid var(--primary-text);
+  border-radius: 8px;
+  background-color: var(--rock-btn);
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.start-screen-container button:hover {
+  opacity: 0.75;
+}
+.start-screen-container button:active {
+  opacity: 0.5;
+}
+
+.start-screen-container input {
+  border-radius: 8px;
+  padding: 12px 16px;
+  border: 2px solid var(--primary-text);
+  width: 100%;
+  font-size: 18px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--overlay-color);
+  backdrop-filter: blur(8px);
+  z-index: 10;
 }

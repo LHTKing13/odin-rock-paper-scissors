@@ -4,10 +4,98 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Odin Rock Paper Scissors</title>
+    <!-- Styles -->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h3>Open the console with F12 to play "Rock Paper Scissors" game!</h3>
+    <div class="main-container">
+      <!-- start screen -->
+      <div class="start-screen-container">
+        <h1 class="start-screen-title">Good luck!</h1>
+        <input class="start-input" type="number" placeholder="Enter number of rounds" />
+        <button class="start-btn">Start</button>
+      </div>
+      <!-- title -->
+      <div class="title-container">
+        <div class="controls">
+          <img class="theme-btn" src="images/moon.png" />
+          <h1>Rock Paper Scissors</h1>
+          <img class="sound-btn" src="images/sound-on.png" />
+        </div>
+        <p>Choose your move and beat the computer!</p>
+      </div>
+      <!-- score -->
+      <div class="score-container">
+        <div class="player">
+          <p>Player</p>
+          <h1 class="player-score">3</h1>
+        </div>
+        <div class="tie">
+          <p>Tie</p>
+          <h1 class="tie-score">1</h1>
+        </div>
+        <div class="computer">
+          <p>Computer</p>
+          <h1 class="computer-score">2</h1>
+        </div>
+      </div>
+      <!-- game -->
+      <div class="game-container">
+        <div class="choice-container">
+          <div class="player-choice">
+            <p>Your choice</p>
+            <div class="player-choice-img">
+              <img src="images/rock.png" />
+            </div>
+            <h4 class="player-choice-text">Rock</h4>
+          </div>
+          <div class="round-result">
+            <h3 class="round-text">You win!</h3>
+          </div>
+          <div class="computer-choice">
+            <p>Computer choice</p>
+            <div class="computer-choice-img">
+              <img src="images/scissors.png" />
+            </div>
+            <h4 class="computer-choice-text">Scissors</h4>
+          </div>
+        </div>
+        <div class="btn-container">
+          <div id="btn-rock">
+            <img src="images/rock.png" />
+            <p>Rock</p>
+          </div>
+          <div id="btn-paper">
+            <img src="images/paper.png" />
+            <p>Paper</p>
+          </div>
+          <div id="btn-scissors">
+            <img src="images/scissors.png" />
+            <p>Scissors</p>
+          </div>
+        </div>
+      </div>
+      <!-- round -->
+      <div class="round-container">
+        <div class="total-rounds">
+          <p>Round</p>
+          <h2 class="total-rounds-num">4/10</h2>
+        </div>
+        <div class="remaining-rounds">
+          <p>Remaining rounds</p>
+          <h2 class="remaining-rounds-num">6</h2>
+        </div>
+      </div>
+
+      <!-- <div class="end-screen-container">
+        <h1>Good luck!</h1>
+        <input class="start-input" type="number" placeholder="Enter number of rounds" />
+        <button class="start-btn">Play again</button>
+      </div> -->
+    </div>
+
+    <div class="overlay"></div>
+    <!-- scripts -->
     <script src="script.js"></script>
   </body>
 </html>
